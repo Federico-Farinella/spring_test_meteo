@@ -22,7 +22,7 @@ public class MeteoController {
 
     @PostMapping
     public ResponseEntity<MeteoResponseDto> requestWeather (@Valid @RequestBody MeteoRequestDto meteoRequestDto) {
-        MeteoResponseDto response = service.elaborateWeather(meteoRequestDto.città());
+        MeteoResponseDto response = service.elaborateWeather(meteoRequestDto);
         return ResponseEntity.ok(response);
     }
 }

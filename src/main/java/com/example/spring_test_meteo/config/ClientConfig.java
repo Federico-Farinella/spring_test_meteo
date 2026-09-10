@@ -22,11 +22,11 @@ public class ClientConfig {
     public RestClient meteoRestClient() {
         //Timeout connessione 2s, lettura (5s)
         HttpClient httpClient = HttpClient.newBuilder()
-                .connectTimeout(Duration.ofSeconds(2))
+                .connectTimeout(Duration.ofSeconds(5000))
                 .build();
 
         JdkClientHttpRequestFactory factory = new JdkClientHttpRequestFactory(httpClient);
-        factory.setReadTimeout(5);
+        factory.setReadTimeout(10000);
 
         return RestClient.builder().requestFactory(factory)
                 .baseUrl(baseUrl).build();
